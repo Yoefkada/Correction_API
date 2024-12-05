@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const { addTags } = require('../controllers/notecontrollers');
-const { validation } = require('../utils/validator');
+const { validation, handleValidationErrors } = require('../utils/validator');
 
 
-router.post('/tags', validation.tagValidation ,addTags);
+router.post('/tags', validation.tagValidation, handleValidationErrors ,addTags);
 
 module.exports = router;
